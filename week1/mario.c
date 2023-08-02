@@ -4,6 +4,7 @@
 int main(void) 
 {
     int rows;
+    int a;
 
     do {
 
@@ -11,6 +12,7 @@ int main(void)
         scanf("%d", &rows);
 
     } while (rows < 1 || rows > 8);
+    a = rows;
 
 
     for (int i = 1; i < (rows+1); i++) {
@@ -26,9 +28,13 @@ int main(void)
                 printf("#");
             }
         }
+        printf("  ");
 
+        for (int k = 1; k <= (rows - (a-1)); k++) {
+            printf("#");
+        }
+        
         printf("\n");
-
+        a -= 1;
     }
-    printf("test");
 }
