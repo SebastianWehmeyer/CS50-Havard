@@ -11,9 +11,9 @@ int main(void) {
     do {
 
     printf("Change owed: ");
-    //scanf("%s", &cents);
     fgets(cents, 100, stdin);
     change = atoi(cents);
+    printf("%d", change);
 
     } while (change <= 0);
 
