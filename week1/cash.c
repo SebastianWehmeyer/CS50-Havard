@@ -1,16 +1,21 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 int main(void) {
 
     int count = 0;
+    char cents[100];
     int change;
 
     do {
 
     printf("Change owed: ");
-    scanf("%d", &change);
+    //scanf("%s", &cents);
+    fgets(cents, 100, stdin);
+    change = atoi(cents);
 
-    } while (change < 0);
+    } while (change <= 0);
 
     do {
 
