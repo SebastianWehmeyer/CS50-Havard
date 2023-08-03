@@ -12,6 +12,7 @@ int main(void)
         scanf("%d", &rows);
 
     } while (rows < 1 || rows > 8);
+                                                              
     a = rows;
 
 
