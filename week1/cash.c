@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 int main(void) {
 
     int count = 0;
@@ -9,13 +10,12 @@ int main(void) {
     int change;
 
     do {
-
     printf("Change owed: ");
     fgets(cents, 100, stdin);
     change = atoi(cents);
     printf("%d", change);
-
     } while (change <= 0);
+
 
     do {
 
@@ -46,7 +46,5 @@ int main(void) {
         }
 
     } while (change >= 0);
-
     printf("%d\n", count);
-
 }

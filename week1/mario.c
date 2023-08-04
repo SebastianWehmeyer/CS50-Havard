@@ -1,5 +1,5 @@
-
 #include <stdio.h>
+
 
 int main(void) 
 {
@@ -7,14 +7,11 @@ int main(void)
     int a;
 
     do {
-
         printf("Height: ");
         scanf("%d", &rows);
-
     } while (rows < 1 || rows > 8);
                                                               
     a = rows;
-
 
     for (int i = 1; i < (rows+1); i++) {
         
