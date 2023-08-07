@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-//#include <cs50.h>
+#include "cs50.h"
 #include <math.h>
 
 float average(float, float);
@@ -8,14 +8,13 @@ int count_letters(char[]);
 int count_words(char[]);
 int count_sentences(char[]);
 
+//cc readability.c -o readability cs50.c
 int main(void) 
 {
-    char text[10000];
+    string text = get_string("Text: ");
+    char * text_c = text;
     
-    printf("Text: ");
-    scanf("%[^\n]%*c", text);
-    
-    float index = 0.0588 * (average(count_letters(text), count_words(text))) - 0.296 * (average(count_sentences(text), count_words(text))) - 15.8;
+    float index = 0.0588 * (average(count_letters(text_c), count_words(text_c))) - 0.296 * (average(count_sentences(text_c), count_words(text_c))) - 15.8;
     int new_index = round(index);
     
     if (new_index >= 16) {
@@ -25,7 +24,6 @@ int main(void)
     } else {
         printf("Grade: %d \n", new_index);
     }
-
 
 }
 
