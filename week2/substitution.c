@@ -5,7 +5,7 @@
 
 // cc substitution.c -o substitution cs50.c
 bool compare_text(char[]);
-char rotate(char, char);
+char rotate(char, char[]);
 
 int main(int argc, string argv[]) 
 {
@@ -33,14 +33,16 @@ int main(int argc, string argv[])
 
             for (int n = 0; n < strlen(code); n++)
             {
-                new_code[n] = rotate(code[n], key[n]);
+                new_code[n] = rotate(code[n], key);
             }
 
             for (int k = 0; k < strlen(new_code); k++)
             {
                 printf("%c", new_code[k]);
             }
-                       
+
+        printf("\n");
+        return 0;    
         } else 
         {
             printf("Key must contain 26 letters. Each letter can be used only once. \n");
@@ -91,16 +93,50 @@ bool compare_text(char text[])
 
 }
 
-char rotate(char text_r, char key_r)
+
+char rotate(char text_r, char key_r[])
 {
+    char upper_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char lower_alphabet[] = "abcdefghijklmnopqrstuvwxyz";
     char new;
     int swap = text_r;
+    int count = 0;
+
     if (swap <= 64 || swap >= 91 && swap <= 96 || swap >= 123)
     {
         new = text_r;
     } else
     {
+        if (islower(text_r) == 1)
+        {
+            for (int i = 0; i <= 26; i++)
+            {
+                if (text_r == lower_alphabet[i])
+                {
+                    break;
+                }
+                count ++;
+
+            }
+
+            new = tolower(key_r[count]);
+        } else 
+        {
+            for (int i = 0; i <= 26; i++)
+            {
+                if (text_r == upper_alphabet[i])
+                {
+                    break;
+                }
+
+                count ++;
+            }
+
+            new = toupper(key_r[count]);
+        }
 
     }
+
     return new;
 }
+    
