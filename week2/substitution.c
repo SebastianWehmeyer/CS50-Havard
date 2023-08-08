@@ -104,4 +104,3 @@ char rotate(char text_r, char key_r)
     }
     return new;
 }
-    
