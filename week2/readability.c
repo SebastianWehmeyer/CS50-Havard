@@ -89,3 +89,4 @@ int count_sentences(char text[])
 
     return sentences;
 }
+    
