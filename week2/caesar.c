@@ -49,9 +49,9 @@ char caesar (char code_f, int key_f)
 {
     char new;
     int rotate = code_f;
-    if (code_f == ' ')
+    if (rotate <= 64 || rotate >= 91 && rotate <= 96 || rotate >= 123)
     {
-        new = ' ';
+        new = code_f;
     } else
     {
         for (int j = 0; j < key_f; j++)
