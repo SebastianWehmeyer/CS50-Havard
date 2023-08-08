@@ -9,3 +9,4 @@ int main(void)
     fgets(name, 100, stdin);
     printf("Hello, %s", name);
 }
+    
