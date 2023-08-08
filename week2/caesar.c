@@ -63,9 +63,9 @@ char caesar (char code_f, int key_f)
 
             rotate++;
         }
+
         new = rotate;
     }
 
-    
     return new;
 }
