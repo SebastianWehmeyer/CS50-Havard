@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-
 int main(void) 
 {
     int number;
@@ -87,4 +86,3 @@ int main(void)
         printf("INVALID \n");
     }
 }
-    

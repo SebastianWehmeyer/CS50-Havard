@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 int main(void)
 {
     char name[100];
@@ -9,4 +8,3 @@ int main(void)
     fgets(name, 100, stdin);
     printf("Hello, %s", name);
 }
-    

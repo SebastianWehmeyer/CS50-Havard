@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 int main(void) 
 {
     int rows;
@@ -39,4 +38,3 @@ int main(void)
         a -= 1;
     }
 }
-    
