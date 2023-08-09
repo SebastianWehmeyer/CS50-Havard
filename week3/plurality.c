@@ -67,12 +67,36 @@ int main(int argc, string argv[])
 bool vote(string name)
 {
     // TODO
-    return false;
+    bool count = false;
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcmp(candidates[i].name, name) == 0) 
+        {
+            candidates[i].votes++;
+            count = true;
+            break;
+        } 
+    }
+
+    if (count == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
     // TODO
+    int n = 0;
+    
+    while 
+    printf("%s \n", candidates[n].name);
     return;
 }
+
+// cc plurality.c -o plurality cs50.c
