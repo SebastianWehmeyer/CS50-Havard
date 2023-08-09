@@ -18,42 +18,40 @@ int main(void)
     if (new_index >= 16) 
     {
         printf("Grade: 16+ \n");
-    } else if (index < 1) 
+    } 
+    else if (index < 1) 
     {
         printf("Before Grade 1 \n");
-    } else 
+    } 
+    else 
     {
         printf("Grade: %d \n", new_index);
     }
-
 }
-
 
 float average(float avg, float f_words) 
 {
     return (avg / f_words)*100;
 }
 
-
 int count_letters(char text[]) 
 {
     int letters = 0;
+
     for (int i = 0; i < strlen(text); i++) 
     {
         if (text[i] != ' ' && text[i] != '.' && text[i] != '!' && text[i] != '?' && text[i] != ',' && text[i] != ';' && text[i] != '\'' && text[i] != ':' && text[i] != '-' && text[i] != '"') 
         {
             letters++;
         }
-
     }
-
     return letters;
 }
-
 
 int count_words(char text[]) 
 {
     int words = 0;
+
     for (int i = 0; i < strlen(text); i++) 
     {
         if (text[i] == ' ' || text[i] == '.' || text[i] == '!' || text[i] == '?' || text[i] == ',' || text[i] == ';' || text[i] == ':') 
@@ -61,32 +59,28 @@ int count_words(char text[])
             if (text[i] == ' ') 
             {
                 words++;
-            } else 
+            } 
+            else 
             {
                 i++;
                 words++;
             }
-
         }
-
     }
-
     return words;
 }
-
 
 int count_sentences(char text[]) 
 {
     int sentences = 0;
+
     for (int i = 0; i < strlen(text); i++) 
     {
         if (text[i] == '.' || text[i] == '?' || text[i] == '!') 
         {
             sentences++;
         }
-
     }
-
     return sentences;
 }
     

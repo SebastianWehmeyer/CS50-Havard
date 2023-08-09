@@ -43,24 +43,24 @@ int main(int argc, string argv[])
 
         printf("\n");
         return 0;    
-        } else 
+        } 
+        else 
         {
             printf("Key must contain 26 letters. Each letter can be used only once. \n");
             return 1;
         }
-
-    } else 
+    } 
+    else 
     {
         printf("./substitution key \n");
         return 1;
     }
-
 }
-
 
 bool compare_text(char text[])
 {
     bool compare;
+
     for (int i = 0; i <= 26; i++)
     {
         for (int j = i + 1; j <= 26 - i; j++)
@@ -69,30 +69,28 @@ bool compare_text(char text[])
             {
                 compare = false;
                 break;
-            } else
+            } 
+            else
             {
                 compare = true;
             }
-
         }
 
         if (compare == false)
         {
             break;
         }
-
     }
 
     if (compare == false)
     {
         return false;
-    } else 
+    } 
+    else 
     {
         return true;
     }
-
 }
-
 
 char rotate(char text_r, char key_r[])
 {
@@ -105,7 +103,8 @@ char rotate(char text_r, char key_r[])
     if (swap <= 64 || swap >= 91 && swap <= 96 || swap >= 123)
     {
         new = text_r;
-    } else
+    } 
+    else
     {
         if (islower(text_r) == 1)
         {
@@ -120,7 +119,8 @@ char rotate(char text_r, char key_r[])
             }
 
             new = tolower(key_r[count]);
-        } else 
+        } 
+        else 
         {
             for (int i = 0; i <= 26; i++)
             {
@@ -134,9 +134,7 @@ char rotate(char text_r, char key_r[])
 
             new = toupper(key_r[count]);
         }
-
     }
-
     return new;
 }
     
