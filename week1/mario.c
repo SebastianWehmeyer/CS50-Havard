@@ -21,11 +21,11 @@ int main(void)
             if (j <= (rows - i)) 
             {
                 printf(" ");
-            } else 
+            } 
+            else 
             {
                 printf("#");
             }
-
         }
 
         printf("  ");
@@ -38,6 +38,5 @@ int main(void)
         printf("\n");
         a -= 1;
     }
-
 }
     

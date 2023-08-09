@@ -41,7 +41,8 @@ int main(void)
             second_string[c] = '1';
             second_string[c+1] = second_digits +'0';
             c++;
-        } else 
+        } 
+        else 
         {
           second_string[c] = second_digits + '0';     
         }
@@ -65,26 +66,25 @@ int main(void)
         if ((string[0] == '3' && string[1] == '4' && length == 15) || (string[0] == '3' && string[1] == '7' && length == 15)) 
         {
             printf("AMEX \n");
-        } else if (string[0] == '4') 
+        } 
+        else if (string[0] == '4') 
         {
             if(length == 13 || length == 16) 
             {
                 printf("VISA \n");
             } 
-
-        } else if (length == 16 && string[0] == '5') 
+        } 
+        else if (length == 16 && string[0] == '5') 
         {
             if (string[1] == '1' || string[1] == '2' || string[1] == '3' || string[1] == '4' || string[1] == '5') 
             {
                 printf("MASTERCARD \n");
             }
-
         } 
-
-    } else 
+    } 
+    else 
     {
         printf("INVALID \n");
     }
- 
 }
     
