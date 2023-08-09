@@ -69,4 +69,3 @@ char caesar (char code_f, int key_f)
     }
     return new;
 }
-     

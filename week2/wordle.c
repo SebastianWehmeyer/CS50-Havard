@@ -218,4 +218,3 @@ void print_word(string guess, int wordsize, int status[])
     printf("\n");
     return;
 }
-     
