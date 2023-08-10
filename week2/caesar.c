@@ -10,23 +10,24 @@ int main(int argc, string argv[])
 {
     if (argc == 2)
     {
-        int key = atoi(argv[1]);
+        int times_to_rotate = atoi(argv[1]);
 
-        if (argc == 2 && key > 0)
+        if (argc == 2 && times_to_rotate> 0)
         {
-            char new_code[10000];
-            string text = get_string("plaintext: ");
-            char * code = text;
+            
+            string input_text = get_string("plaintext: ");
+            char * normal_text_as_char = input_text;
+            char chiffre_code[strlen(normal_text_as_char)];
             printf("ciphertext: ");
 
-            for (int n = 0; n < strlen(code); n++)
+            for (int text_element = 0; text_element < strlen(normal_text_as_char); text_element++)
             {  
-                new_code[n] = caesar(code[n], key);
+                chiffre_code[text_element] = caesar(normal_text_as_char[text_element], times_to_rotate);
             }
 
-            for (int k = 0; k < strlen(new_code); k++)
+            for (int print_chiffre_element = 0; print_chiffre_element < strlen(chiffre_code); print_chiffre_element++)
             {
-                printf("%c", new_code[k]);
+                printf("%c", chiffre_code[print_chiffre_element]);
             }
 
         printf("\n");
@@ -44,28 +45,28 @@ int main(int argc, string argv[])
     }
 }
 
-char caesar (char code_f, int key_f)
+char caesar (char normal_character, int times_to_rotate)
 {
-    char new;
-    int rotate = code_f;
+    char chiffre_character;
+    int character_as_ascii = normal_character;
 
-    if (rotate <= 64 || rotate >= 91 && rotate <= 96 || rotate >= 123)
+    if (character_as_ascii <= 64 || character_as_ascii >= 91 && character_as_ascii <= 96 || character_as_ascii >= 123)  //If not a letter
     {
-        new = code_f;
+        chiffre_character = normal_character;
     } 
     else
     {
-        for (int j = 0; j < key_f; j++)
+        for (int number_of_rotations = 0; number_of_rotations < times_to_rotate; number_of_rotations++)
         {
-            if (rotate == 90 || rotate == 122)
+            if (character_as_ascii == 90 || character_as_ascii == 122)
             {
-                rotate -= 26;  
+                character_as_ascii -= 26;  
             }
 
-            rotate++;
+            character_as_ascii++;
         }
 
-        new = rotate;
+        chiffre_character = character_as_ascii;
     }
-    return new;
+    return chiffre_character;
 }

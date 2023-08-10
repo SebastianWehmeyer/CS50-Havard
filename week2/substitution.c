@@ -13,32 +13,32 @@ int main(int argc, string argv[])
     {
         char * key = argv[1];
         int key_length = strlen(key);
-        int count = 0;
+        int number_of_letters = 0;
 
-        for (int i = 0; i < 26; i++)
+        for (int key_element = 0; key_element < key_length; key_element++)
         {
-            if (isalpha(key[i]) == 1)
+            if (isalpha(key[key_element]) == 1)
             {
-                count++;
+                number_of_letters++;
             }
 
-        }
+        } 
 
-        if (argc == 2 && key_length == 26 && count == 26 && compare_text(key) == true)
+        if (argc == 2 && key_length == 26 && number_of_letters == 26 && compare_text(key) == true)
         {
-            char new_code[10000];
-            string text = get_string("plaintext: ");
-            char * code = text;
+            string input_text = get_string("plaintext: ");
+            char * normal_text_as_char = input_text;
+            char coded_text[strlen(normal_text_as_char)];
             printf("ciphertext: ");
 
-            for (int n = 0; n < strlen(code); n++)
+            for (int text_element = 0; text_element < strlen(normal_text_as_char); text_element++)
             {
-                new_code[n] = rotate(code[n], key);
+                coded_text[text_element] = rotate(normal_text_as_char[text_element], key);
             }
 
-            for (int k = 0; k < strlen(new_code); k++)
+            for (int coded_element = 0; coded_element < strlen(coded_text); coded_element++)
             {
-                printf("%c", new_code[k]);
+                printf("%c", coded_text[coded_element]);
             }
 
         printf("\n");
@@ -57,32 +57,32 @@ int main(int argc, string argv[])
     }
 }
 
-bool compare_text(char text[])
+bool compare_text(char key[])
 {
-    bool compare;
+    bool each_letter_once;
 
-    for (int i = 0; i <= 26; i++)
+    for (int key_element = 0; key_element <= 26; key_element++)
     {
-        for (int j = i + 1; j <= 26 - i; j++)
+        for (int next_key_element = key_element + 1; next_key_element <= 26 - key_element; next_key_element++)
         {
-            if (text[i] == text[j])
+            if (key[key_element] == key[next_key_element])
             {
-                compare = false;
+                each_letter_once = false;
                 break;
             } 
             else
             {
-                compare = true;
+                each_letter_once = true;
             }
         }
 
-        if (compare == false)
+        if (each_letter_once == false)
         {
             break;
         }
     }
 
-    if (compare == false)
+    if (each_letter_once == false)
     {
         return false;
     } 
@@ -92,48 +92,48 @@ bool compare_text(char text[])
     }
 }
 
-char rotate(char text_r, char key_r[])
+char rotate(char normal_character, char key[])
 {
     char upper_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char lower_alphabet[] = "abcdefghijklmnopqrstuvwxyz";
-    char new;
-    int swap = text_r;
-    int count = 0;
+    char coded_character;
+    int character_as_ascii = normal_character;
+    int key_element = 0;
 
-    if (swap <= 64 || swap >= 91 && swap <= 96 || swap >= 123)
+    if (character_as_ascii <= 64 || character_as_ascii >= 91 && character_as_ascii <= 96 || character_as_ascii >= 123) //If not a letter
     {
-        new = text_r;
+        coded_character = normal_character;
     } 
     else
     {
-        if (islower(text_r) == 1)
+        if (islower(normal_character) == 1)
         {
-            for (int i = 0; i <= 26; i++)
+            for (int alphabet_element = 0; alphabet_element <= 26; alphabet_element++)
             {
-                if (text_r == lower_alphabet[i])
+                if (normal_character == lower_alphabet[alphabet_element])
                 {
                     break;
                 }
-                count ++;
 
+                key_element++;
             }
 
-            new = tolower(key_r[count]);
+            coded_character = tolower(key[key_element]);
         } 
         else 
         {
-            for (int i = 0; i <= 26; i++)
+            for (int alphabet_element = 0; alphabet_element <= 26; alphabet_element++)
             {
-                if (text_r == upper_alphabet[i])
+                if (normal_character == upper_alphabet[alphabet_element])
                 {
                     break;
                 }
 
-                count ++;
+                key_element++;
             }
 
-            new = toupper(key_r[count]);
+            coded_character = toupper(key[key_element]);
         }
     }
-    return new;
+    return coded_character;
 }

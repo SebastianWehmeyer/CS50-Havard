@@ -9,62 +9,62 @@ void print_bulb(int bit);
 
 int main(void)
 {
-    string text_s = get_string("Message: ");
-    char * text = text_s;
-    int decimal;
+    string input_text = get_string("Message: ");
+    char * input_text_as_char = input_text;
+    int decimal_for_binary;
 
-    for (int n = 0; n < strlen(text); n++)
+    for (int n = 0; n < strlen(input_text); n++)
     {
-        char array[] = {0, 0 ,0 ,0 ,0 ,0 ,0 ,0};
-        decimal = text[n];
+        char binary_code[] = {0, 0 ,0 ,0 ,0 ,0 ,0 ,0};
+        decimal_for_binary = input_text[n];
 
         for (int j = 0; j < 8; j++)
         {
-            if (decimal >= 128)
+            if (decimal_for_binary >= 128)
             {
-                array[0] = 1;
-                decimal -= 128;
+                binary_code[0] = 1;
+                decimal_for_binary -= 128;
             } 
-            else if (decimal < 128 && decimal >= 64)
+            else if (decimal_for_binary < 128 && decimal_for_binary >= 64)
             {
-                array[1] = 1;
-                decimal -= 64;
+                binary_code[1] = 1;
+                decimal_for_binary -= 64;
             } 
-            else if (decimal < 64 && decimal >= 32)
+            else if (decimal_for_binary < 64 && decimal_for_binary >= 32)
             {
-                array[2] = 1;
-                decimal -= 32;
+                binary_code[2] = 1;
+                decimal_for_binary -= 32;
             } 
-            else if (decimal < 32 && decimal >= 16)
+            else if (decimal_for_binary < 32 && decimal_for_binary >= 16)
             {
-                array[3] = 1;
-                decimal -= 16;
+                binary_code[3] = 1;
+                decimal_for_binary -= 16;
             } 
-            else if (decimal < 16 && decimal >= 8)
+            else if (decimal_for_binary < 16 && decimal_for_binary >= 8)
             {
-                array[4] = 1;
-                decimal -= 8;
+                binary_code[4] = 1;
+                decimal_for_binary -= 8;
             } 
-            else if (decimal < 8 && decimal >= 4)
+            else if (decimal_for_binary < 8 && decimal_for_binary >= 4)
             {
-                array[5] = 1;
-                decimal -= 4;
+                binary_code[5] = 1;
+                decimal_for_binary -= 4;
             } 
-            else if (decimal < 4 && decimal >= 2)
+            else if (decimal_for_binary < 4 && decimal_for_binary >= 2)
             {
-                array[6] = 1;
-                decimal -= 2;
+                binary_code[6] = 1;
+                decimal_for_binary -= 2;
             } 
-            else if (decimal == 1)
+            else if (decimal_for_binary == 1)
             {
-                array[7] = 1;
-                decimal -= 1;
+                binary_code[7] = 1;
+                decimal_for_binary -= 1;
             }
         }
 
-        for (int i = 0; i < 8; i++)
+        for (int binary_element = 0; binary_element < 8; binary_element++)
         {
-            print_bulb(array[i]);
+            print_bulb(binary_code[binary_element]);
         }
 
         printf("\n");

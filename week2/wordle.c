@@ -35,7 +35,7 @@ int main(int argc, string argv[])
 
         int size;
         int wordsize = atoi(argv[1]);  
-                
+        
         if (wordsize >= 5 && wordsize <= 8)                             
         {
             // open correct file, each file has exactly LISTSIZE words
@@ -80,9 +80,9 @@ int main(int argc, string argv[])
 
                 // set all elements of status array initially to 0, aka WRONG
                 // TODO #4
-                for (int i = 0; i <= wordsize; i++)
+                for (int status_element = 0; status_element <= wordsize; status_element++)
                 {
-                    status[i] = 0;
+                    status[status_element] = 0;
                 }
 
                 // Calculate score for the guess
@@ -130,6 +130,9 @@ int main(int argc, string argv[])
 
 string get_guess(int wordsize)
 {
+    // ensure users actually provide a guess that is the correct length
+    // TODO #3
+
     string guess = get_string ("Input a %i-letter word: ", wordsize);
 
     if (strlen(guess) == wordsize)
@@ -150,9 +153,6 @@ string get_guess(int wordsize)
         }
     }
 
-    // ensure users actually provide a guess that is the correct length
-    // TODO #3
-
     return guess;
 }
 
@@ -163,20 +163,20 @@ int check_word(string guess, int wordsize, int status[], string choice)
 
     int score = 0;
 
-    for (int i = 0; i < wordsize; i++)
+    for (int element = 0; element < wordsize; element++)
     {
-        for (int j = 0; j < wordsize; j++)
+        for (int other_element = 0; other_element < wordsize; other_element++)
         {
-            if (guess[i] == choice[i])
+            if (guess[element] == choice[element])
             {
-                status[i] = 2;
+                status[element] = 2;
                 score += 2;
                 break;
             } else 
             {
-                if (guess[i] == choice[j])
+                if (guess[element] == choice[other_element])
                 {
-                    status[i] = 1;
+                    status[element] = 1;
                     score += 1;
                 }
             }
@@ -199,19 +199,19 @@ void print_word(string guess, int wordsize, int status[])
     // print word character-for-character with correct color coding, then reset terminal font to normal
     // TODO #6
 
-    for (int i = 0; i <= wordsize; i++)
+    for (int element = 0; element <= wordsize; element++)
     {
-        if (status[i] == 0)
+        if (status[element] == 0)
         {
-            printf(RED"%c"RESET, guess[i]);
+            printf(RED"%c"RESET, guess[element]);
         } 
-        else if (status[i] == 1)
+        else if (status[element] == 1)
         {
-            printf(YELLOW"%c"RESET, guess[i]);
+            printf(YELLOW"%c"RESET, guess[element]);
         } 
         else 
         {
-            printf(GREEN"%c"RESET, guess[i]);
+            printf(GREEN"%c"RESET, guess[element]);
         }
     }
 

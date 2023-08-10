@@ -10,37 +10,37 @@ int count_sentences(char[]);
 //cc readability.c -o readability cs50.c
 int main(void) 
 {
-    string text = get_string("Text: ");
-    char * text_c = text;
-    float index = 0.0588 * (average(count_letters(text_c), count_words(text_c))) - 0.296 * (average(count_sentences(text_c), count_words(text_c))) - 15.8;
-    int new_index = round(index);
+    string input_text = get_string("Text: ");
+    char * text_as_char = input_text;
+    float index = 0.0588 * (average(count_letters(text_as_char), count_words(text_as_char))) - 0.296 * (average(count_sentences(text_as_char), count_words(text_as_char))) - 15.8;
+    int round_index = round(index);
 
-    if (new_index >= 16) 
+    if (round_index >= 16) 
     {
         printf("Grade: 16+ \n");
     } 
-    else if (index < 1) 
+    else if (round_index < 1) 
     {
         printf("Before Grade 1 \n");
     } 
     else 
     {
-        printf("Grade: %d \n", new_index);
+        printf("Grade: %d \n", round_index);
     }
 }
 
-float average(float avg, float f_words) 
+float average(float counted_letters_and_sentences, float counted_words) 
 {
-    return (avg / f_words)*100;
+    return (counted_letters_and_sentences / counted_words)*100;
 }
 
 int count_letters(char text[]) 
 {
     int letters = 0;
 
-    for (int i = 0; i < strlen(text); i++) 
+    for (int character = 0; character < strlen(text); character++) 
     {
-        if (text[i] != ' ' && text[i] != '.' && text[i] != '!' && text[i] != '?' && text[i] != ',' && text[i] != ';' && text[i] != '\'' && text[i] != ':' && text[i] != '-' && text[i] != '"') 
+        if (text[character] != ' ' && text[character] != '.' && text[character] != '!' && text[character] != '?' && text[character] != ',' && text[character] != ';' && text[character] != '\'' && text[character] != ':' && text[character] != '-' && text[character] != '"') 
         {
             letters++;
         }
@@ -52,17 +52,17 @@ int count_words(char text[])
 {
     int words = 0;
 
-    for (int i = 0; i < strlen(text); i++) 
+    for (int character = 0; character < strlen(text); character++) 
     {
-        if (text[i] == ' ' || text[i] == '.' || text[i] == '!' || text[i] == '?' || text[i] == ',' || text[i] == ';' || text[i] == ':') 
+        if (text[character] == ' ' || text[character] == '.' || text[character] == '!' || text[character] == '?' || text[character] == ',' || text[character] == ';' || text[character] == ':') 
         {
-            if (text[i] == ' ') 
+            if (text[character] == ' ') 
             {
                 words++;
             } 
             else 
             {
-                i++;
+                character++;
                 words++;
             }
         }
@@ -74,9 +74,9 @@ int count_sentences(char text[])
 {
     int sentences = 0;
 
-    for (int i = 0; i < strlen(text); i++) 
+    for (int end_of_sentence = 0; end_of_sentence < strlen(text); end_of_sentence++) 
     {
-        if (text[i] == '.' || text[i] == '?' || text[i] == '!') 
+        if (text[end_of_sentence] == '.' || text[end_of_sentence] == '?' || text[end_of_sentence] == '!') 
         {
             sentences++;
         }
