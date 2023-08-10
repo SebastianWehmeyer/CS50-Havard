@@ -1,5 +1,6 @@
-#include <cs50.h>
+#include "cs50.h"
 #include <stdio.h>
+#include <string.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -128,13 +129,38 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     // TODO
-    return false;
+    for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
+    {
+        if (strcmp(candidates[candidate_number].name, name) == 0)
+        {
+            preferences[voter][rank] = candidate_number;
+            return true;
+        }
+    }
+
+    return false; 
 }
 
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
     // TODO
+    int first_vote;
+
+    for (int voter_number = 0; voter_number < voter_count; voter_number++)
+    {
+        for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
+        {
+            first_vote = preferences[voter_number][candidate_number];
+
+            if (!candidates[first_vote].eliminated)
+            {
+                candidates[first_vote].votes += 1;
+                break;
+            }
+        }
+    }
+
     return;
 }
 
@@ -142,7 +168,19 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
-    return false;
+    for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
+    {
+        if (candidates[candidate_number].votes > (voter_count/2))
+        {
+            printf("%s", candidates[candidate_number].name);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    //return false;
 }
 
 // Return the minimum number of votes any remaining candidate has
