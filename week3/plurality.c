@@ -23,6 +23,7 @@ int candidate_count;
 bool vote(string name);
 void print_winner(void);
 
+// cc plurality.c -o plurality cs50.c
 int main(int argc, string argv[])
 {
     // Check for invalid usage
@@ -93,10 +94,23 @@ void print_winner(void)
 {
     // TODO
     int n = 0;
+    string name;
     
-    while 
-    printf("%s \n", candidates[n].name);
+    for (int counter = 0; counter < candidate_count; counter++)
+    {
+        if (candidates[counter].votes > n)
+        {
+            n = candidates[counter].votes;
+        }
+    }
+
+    for (int element = 0; element < candidate_count; element++)
+    {
+        if (candidates[element].votes == n)
+        {
+            printf("%s \n", candidates[element].name);
+        }
+
+    }
     return;
 }
-
-// cc plurality.c -o plurality cs50.c
