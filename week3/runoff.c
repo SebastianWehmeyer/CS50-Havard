@@ -172,21 +172,19 @@ bool print_winner(void)
     {
         if (candidates[candidate_number].votes > (voter_count/2))
         {
-            printf("%s", candidates[candidate_number].name);
+            printf("%s \n", candidates[candidate_number].name);
             return true;
         }
-        else
-        {
-            return false;
-        }
     }
-    //return false;
+
+    return false;
 }
 
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
     // TODO
+    int min_votes;
     return 0;
 }
 
