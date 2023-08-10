@@ -45,6 +45,7 @@ int count_letters(char text[])
             letters++;
         }
     }
+
     return letters;
 }
 
@@ -52,21 +53,22 @@ int count_words(char text[])
 {
     int words = 0;
 
-    for (int character = 0; character < strlen(text); character++) 
+    for (int text_character = 0; text_character < strlen(text); text_character++) 
     {
-        if (text[character] == ' ' || text[character] == '.' || text[character] == '!' || text[character] == '?' || text[character] == ',' || text[character] == ';' || text[character] == ':') 
+        if (text[text_character] == ' ' || text[text_character] == '.' || text[text_character] == '!' || text[text_character] == '?' || text[text_character] == ',' || text[text_character] == ';' || text[text_character] == ':') 
         {
-            if (text[character] == ' ') 
+            if (text[text_character] == ' ') 
             {
                 words++;
             } 
             else 
             {
-                character++;
+                text_character++;
                 words++;
             }
         }
     }
+
     return words;
 }
 
@@ -81,5 +83,6 @@ int count_sentences(char text[])
             sentences++;
         }
     }
+
     return sentences;
 }

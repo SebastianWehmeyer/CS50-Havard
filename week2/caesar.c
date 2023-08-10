@@ -36,11 +36,13 @@ int main(int argc, string argv[])
         {
             printf("./caesar key \n");
             return 1;
+
         }
     } 
     else
     {
         printf("./caesar key \n");
+
         return 1;
     }
 }
@@ -68,5 +70,6 @@ char caesar (char normal_character, int times_to_rotate)
 
         chiffre_character = character_as_ascii;
     }
+
     return chiffre_character;
 }

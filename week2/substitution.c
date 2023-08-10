@@ -24,7 +24,7 @@ int main(int argc, string argv[])
 
         } 
 
-        if (argc == 2 && key_length == 26 && number_of_letters == 26 && compare_text(key) == true)
+        if (argc == 2 && key_length == 26 && number_of_letters == 26 && compare_text(key))
         {
             string input_text = get_string("plaintext: ");
             char * normal_text_as_char = input_text;
@@ -42,17 +42,20 @@ int main(int argc, string argv[])
             }
 
         printf("\n");
+    
         return 0;    
         } 
         else 
         {
             printf("Key must contain 26 letters. Each letter can be used only once. \n");
+
             return 1;
         }
     } 
     else 
     {
         printf("./substitution key \n");
+
         return 1;
     }
 }
@@ -76,20 +79,13 @@ bool compare_text(char key[])
             }
         }
 
-        if (each_letter_once == false)
+        if (each_letter_once)
         {
             break;
         }
     }
 
-    if (each_letter_once == false)
-    {
-        return false;
-    } 
-    else 
-    {
-        return true;
-    }
+    return each_letter_once;
 }
 
 char rotate(char normal_character, char key[])
@@ -135,5 +131,6 @@ char rotate(char normal_character, char key[])
             coded_character = toupper(key[key_element]);
         }
     }
+
     return coded_character;
 }
