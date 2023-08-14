@@ -1,6 +1,6 @@
 #include "helpers.h"
+#include <math.h>
 
-// Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int currentHeight = 0; currentHeight < height; currentHeight++)
@@ -15,13 +15,40 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-// Convert image to sepia
 void sepia(int height, int width, RGBTRIPLE image[height][width])
 {
+    for (int currentHeight = 0; currentHeight < height; currentHeight++)
+    {
+        for (int currentWidth = 0; currentWidth < width; currentWidth++)
+        {
+            int sepiaRed = round(.393 * image[currentHeight][currentWidth].rgbtRed + .769 * image[currentHeight][currentWidth].rgbtGreen + .189 * image[currentHeight][currentWidth].rgbtBlue);
+            int sepiaGreen = round(.349 * image[currentHeight][currentWidth].rgbtRed + .686 * image[currentHeight][currentWidth].rgbtGreen + .168 * image[currentHeight][currentWidth].rgbtBlue);
+            int sepiaBlue = round(.272 * image[currentHeight][currentWidth].rgbtRed + .534 * image[currentHeight][currentWidth].rgbtGreen + .131 * image[currentHeight][currentWidth].rgbtBlue);
+
+            if (sepiaRed > 255)
+            {
+                sepiaRed = 255;
+            }
+            
+            if (sepiaGreen > 255)
+            {
+                sepiaGreen = 255;
+            }
+            
+            if (sepiaBlue > 255)
+            {
+                sepiaBlue = 255;
+            }
+    
+            image[currentHeight][currentWidth].rgbtRed = sepiaRed;
+            image[currentHeight][currentWidth].rgbtGreen = sepiaGreen;
+            image[currentHeight][currentWidth].rgbtBlue = sepiaBlue; 
+        }
+    }
+
     return;
 }
 
-// Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int currentHeight = 0; currentHeight < height; currentHeight++)
@@ -38,7 +65,6 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-// Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int currentHeigth = 0; currentHeigth < height; currentHeigth++)
