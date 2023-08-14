@@ -1,6 +1,6 @@
 #include "helpers.h"
-#include <math.h>
 
+// Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int currentHeight = 0; currentHeight < height; currentHeight++)
@@ -15,6 +15,13 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
+// Convert image to sepia
+void sepia(int height, int width, RGBTRIPLE image[height][width])
+{
+    return;
+}
+
+// Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int currentHeight = 0; currentHeight < height; currentHeight++)
@@ -31,17 +38,17 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
+// Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-
     for (int currentHeigth = 0; currentHeigth < height; currentHeigth++)
     {
         for (int currentWidth = 0; currentWidth < width; currentWidth++)
         {
             int red = 0;
-        int green = 0;
-        int blue = 0;
-        int counter = 0;
+            int green = 0;
+            int blue = 0;
+            int counter = 0;
 
             if (currentHeigth >= 0 && currentWidth >= 0) //center pixel
             {
@@ -50,7 +57,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[currentHeigth][currentWidth].rgbtBlue;
                 counter++;
             }
-            
+
             if (currentWidth >= 1) //left center pixel
             {
                 red += image[currentHeigth][currentWidth-1].rgbtRed;
@@ -58,7 +65,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[currentHeigth][currentWidth-1].rgbtBlue;
                 counter++;
             }
-            
+
             if (currentWidth >= 1 && currentHeigth <= (height-1)) //left bottom pixel
             {
                 red += image[currentHeigth+1][currentWidth-1].rgbtRed;
@@ -66,7 +73,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[currentHeigth+1][currentWidth-1].rgbtBlue;
                 counter++;
             }
-            
+
             if (currentWidth >= 1 && currentHeigth >= 1) //left upper pixel
             {
                 red += image[currentHeigth-1][currentWidth-1].rgbtRed;
@@ -74,7 +81,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[currentHeigth-1][currentWidth-1].rgbtBlue;
                 counter++;
             }
-            
+
             if (currentHeigth >= 1) //upper center pixel
             {
                 red += image[currentHeigth-1][currentWidth].rgbtRed;
@@ -82,7 +89,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[currentHeigth-1][currentWidth].rgbtBlue;
                 counter++;
             }
-            
+
             if (currentHeigth >= 1 && currentWidth <= (width-1)) //upper right pixel
             {
                 red += image[currentHeigth-1][currentWidth+1].rgbtRed;
@@ -90,7 +97,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[currentHeigth-1][currentWidth+1].rgbtBlue;
                 counter++;
             }
-            
+
             if (currentWidth <= (width-1)) //right center pixel
             {
                 red += image[currentHeigth][currentWidth+1].rgbtRed;
@@ -98,7 +105,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[currentHeigth][currentWidth+1].rgbtBlue;
                 counter++;
             }
-            
+
             if(currentHeigth <= (height-1) && currentWidth <= (width-1)) //right bottom pixel
             {
                 red += image[currentHeigth+1][currentWidth+1].rgbtRed;
@@ -121,11 +128,5 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    return;
-}
-
-// Detect edges
-void edges(int height, int width, RGBTRIPLE image[height][width])
-{
     return;
 }
