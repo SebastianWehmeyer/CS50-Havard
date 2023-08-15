@@ -1,8 +1,0 @@
-*.bmp
-bmp.h
-filter.c
-helpers.h
-Makefile
-wav.h
-input.wav
-output.wav
