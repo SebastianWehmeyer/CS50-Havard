@@ -127,6 +127,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE tempImage[height][width];
+
     for (int currentHeigth = 0; currentHeigth < height; currentHeigth++)
     {
         for (int currentWidth = 0; currentWidth < width; currentWidth++)
