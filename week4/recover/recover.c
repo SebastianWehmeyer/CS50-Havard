@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     if(argc != 2)
     {
         printf("Usage: ./recover IMAGE \n");
+
         return 1;
     }
 
@@ -17,6 +18,7 @@ int main(int argc, char *argv[])
     if (raw_file==NULL)
     {
         printf("Could not open %s \n", argv[1]);
+
         return 1;
     }
 
