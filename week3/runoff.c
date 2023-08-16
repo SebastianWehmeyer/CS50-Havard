@@ -2,14 +2,11 @@
 #include <stdio.h>
 #include <string.h>
 
-// Max voters and candidates
 #define MAX_VOTERS 100
 #define MAX_CANDIDATES 9
 
-// preferences[i][j] is jth preference for voter i
 int preferences[MAX_VOTERS][MAX_CANDIDATES];
 
-// Candidates have name, vote count, eliminated status
 typedef struct
 {
     string name;
@@ -18,14 +15,10 @@ typedef struct
 }
 candidate;
 
-// Array of candidates
 candidate candidates[MAX_CANDIDATES];
-
-// Numbers of voters and candidates
 int voter_count;
 int candidate_count;
 
-// Function prototypes
 bool vote(int voter, int rank, string name);
 void tabulate(void);
 bool print_winner(void);
@@ -51,11 +44,11 @@ int main(int argc, string argv[])
         return 2;
     }
 
-    for (int i = 0; i < candidate_count; i++)
+    for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
     {
-        candidates[i].name = argv[i + 1];
-        candidates[i].votes = 0;
-        candidates[i].eliminated = false;
+        candidates[candidate_number].name = argv[candidate_number + 1];
+        candidates[candidate_number].votes = 0;
+        candidates[candidate_number].eliminated = false;
     }
 
     voter_count = get_int("Number of voters: ");
@@ -67,13 +60,13 @@ int main(int argc, string argv[])
         return 3;
     }
 
-    for (int i = 0; i < voter_count; i++)
+    for (int voter_number = 0; voter_number < voter_count; voter_number++)
     {
-        for (int j = 0; j < candidate_count; j++)
+        for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
         {
-            string name = get_string("Rank %i: ", j + 1);
+            string name = get_string("Rank %i: ", candidate_number + 1);
 
-            if (!vote(i, j, name))
+            if (!vote(voter_number, candidate_number, name))
             {
                 printf("Invalid vote.\n");
 
@@ -99,11 +92,11 @@ int main(int argc, string argv[])
 
         if (tie)
         {
-            for (int i = 0; i < candidate_count; i++)
+            for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
             {
-                if (!candidates[i].eliminated)
+                if (!candidates[candidate_number].eliminated)
                 {
-                    printf("%s\n", candidates[i].name);
+                    printf("%s\n", candidates[candidate_number].name);
                 }
             }
 
@@ -112,9 +105,9 @@ int main(int argc, string argv[])
 
         eliminate(min);
 
-        for (int i = 0; i < candidate_count; i++)
+        for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
         {
-            candidates[i].votes = 0;
+            candidates[candidate_number].votes = 0;
         }
     }
 
@@ -132,7 +125,7 @@ bool vote(int voter, int rank, string name)
         }
     }
 
-    return false; 
+    return false;
 }
 
 void tabulate(void)
