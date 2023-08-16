@@ -28,11 +28,12 @@ void lock_pairs(void);
 void print_winner(void);
 bool has_cycle(int, int);
 
-int main(int argc, string argv[])   //Main was predetermined
+int main(int argc, string argv[]) //Main was predetermined
 {
     if (argc < 2)
     {
         printf("Usage: tideman [candidate ...]\n");
+
         return 1;
     }
 
@@ -40,18 +41,20 @@ int main(int argc, string argv[])   //Main was predetermined
     if (candidate_count > MAX)
     {
         printf("Maximum number of candidates is %i\n", MAX);
+
         return 2;
     }
+
     for (int i = 0; i < candidate_count; i++)
     {
         candidates[i] = argv[i + 1];
     }
 
-    for (int i = 0; i < candidate_count; i++)
+    for (int candidate_winner = 0; candidate_winner < candidate_count; candidate_winner++)
     {
-        for (int j = 0; j < candidate_count; j++)
+        for (int candidate_loser = 0; candidate_loser < candidate_count; candidate_loser++)
         {
-            locked[i][j] = false;
+            locked[candidate_winner][candidate_loser] = false;
         }
     }
 
@@ -69,6 +72,7 @@ int main(int argc, string argv[])   //Main was predetermined
             if (!vote(j, name, ranks))
             {
                 printf("Invalid vote.\n");
+
                 return 3;
             }
         }
@@ -91,11 +95,12 @@ bool vote(int rank, string name, int ranks[])
         if (strcmp(candidates[candidate_number], name) == 0)
         {
             ranks[rank] = candidate_number;
+
             return true;
         }
     } 
 
-    return false; 
+    return false;
 }
 
 void record_preferences(int ranks[])
@@ -148,7 +153,6 @@ void sort_pairs(void)
                 pairs[pair_number+1] = temporary;
             }
         }
-        
     }
 
     return;
@@ -174,6 +178,7 @@ void print_winner(void)
     for(int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
     {
         int count = 0;
+
         for(int locked_winner = 0; locked_winner < candidate_count; locked_winner++)
         {
             if(locked[locked_winner][candidate_number] == false)
