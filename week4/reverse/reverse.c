@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     }
 
     FILE *input_file = fopen(input_name, "r");
-    
+
     WAVHEADER file_header;
     fread(&file_header, sizeof(WAVHEADER), 1, input_file);
 
