@@ -152,7 +152,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             if (edgesGreen > 255)
             {
                 edgesGreen = 255;
-            } 
+            }
 
             gxBlue = ((image[currentHeigth-1][currentWidth-1].rgbtBlue * (-1)) + (image[currentHeigth][currentWidth-1].rgbtBlue * (-2)) + (image[currentHeigth+1][currentWidth-1].rgbtBlue * (-1)) + (image[currentHeigth-1][currentWidth+1].rgbtBlue) + (image[currentHeigth][currentWidth+1].rgbtBlue * 2) + (image[currentHeigth+1][currentWidth+1].rgbtBlue));
             gyBlue = ((image[currentHeigth-1][currentWidth-1].rgbtBlue * (-1)) + (image[currentHeigth-1][currentWidth].rgbtBlue * (-2)) + (image[currentHeigth-1][currentWidth+1].rgbtBlue * (-1)) + (image[currentHeigth+1][currentWidth-1].rgbtBlue) + (image[currentHeigth+1][currentWidth].rgbtBlue * 2) + (image[currentHeigth+1][currentWidth+1].rgbtBlue));
@@ -161,7 +161,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             if (edgesBlue > 255)
             {
                 edgesBlue = 255;
-            }    
+            }
 
             tempImage[currentHeigth][currentWidth].rgbtRed = edgesRed;
             tempImage[currentHeigth][currentWidth].rgbtGreen = edgesGreen;
@@ -177,7 +177,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             image[currentHeigth][currentWidth].rgbtGreen = tempImage[currentHeigth][currentWidth].rgbtGreen;
             image[currentHeigth][currentWidth].rgbtBlue = tempImage[currentHeigth][currentWidth].rgbtBlue;
         }
-    }    
+    }
 
     return;
 }
