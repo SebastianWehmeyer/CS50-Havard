@@ -1,11 +1,13 @@
-// Implements a dictionary's functionality
-
 #include <ctype.h>
 #include <stdbool.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <strings.h>
 
 #include "dictionary.h"
 
-// Represents a node in a hash table
 typedef struct node
 {
     char word[LENGTH + 1];
@@ -13,38 +15,83 @@ typedef struct node
 }
 node;
 
-// TODO: Choose number of buckets in hash table
-const unsigned int N = 26;
-
-// Hash table
+const unsigned int N = 150000;
+int words_in_dictionary = 0;
 node *table[N];
 
-// Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    int hash_value = hash(word);
+    node *n = table[hash_value];
+
+    while (n != NULL)
+    {
+        if (strcasecmp(word, n->word) == 0)
+        {
+            return true;
+        }
+
+        n = n->next;
+    }
+
     return false;
 }
 
-// Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO: Improve this hash function
-    return toupper(word[0]) - 'A';
+    int word_sum = 0;
+    for (int text_character = 0; text_character < strlen(word); text_character++)
+    {
+        word_sum += toupper(word[text_character]);
+    }
+
+    return word_sum % N;
 }
 
-// Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    // TODO
-    return false;
+    FILE *dictionary_pointer = fopen(dictionary, "r");
+
+    if (dictionary == NULL)
+    {
+        printf("Could not open %s \n", dictionary);
+        return false;
+    }
+
+    char next_word[LENGTH + 1];
+
+    while (fscanf(dictionary_pointer, "%s", next_word) != EOF)
+    {
+        node *n = malloc(sizeof(node));
+
+        if (n == NULL)
+        {
+            return 1;
+        }
+
+        strcpy(n->word, next_word);
+        int hash_value = hash(next_word);
+
+        n->next = table[hash_value];
+        table[hash_value] = n;
+        words_in_dictionary++;
+    }
+
+    fclose(dictionary_pointer);
+
+    return true;
 }
 
-// Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO
-    return 0;
+    if (words_in_dictionary == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return words_in_dictionary;
+    }
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
