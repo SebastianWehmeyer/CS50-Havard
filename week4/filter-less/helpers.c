@@ -29,20 +29,20 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             {
                 sepiaRed = 255;
             }
-            
+
             if (sepiaGreen > 255)
             {
                 sepiaGreen = 255;
             }
-            
+
             if (sepiaBlue > 255)
             {
                 sepiaBlue = 255;
             }
-    
+
             image[currentHeight][currentWidth].rgbtRed = sepiaRed;
             image[currentHeight][currentWidth].rgbtGreen = sepiaGreen;
-            image[currentHeight][currentWidth].rgbtBlue = sepiaBlue; 
+            image[currentHeight][currentWidth].rgbtBlue = sepiaBlue;
         }
     }
 
