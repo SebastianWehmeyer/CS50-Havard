@@ -24,5 +24,5 @@ while change > 0:
     elif change < 0.05:
         change -= 0.01
         count += 1
-    
+
 print(count)
