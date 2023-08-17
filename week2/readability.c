@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+#include <math.h>
 #include "cs50.h"
 
 float average(float, float);
@@ -40,7 +42,7 @@ int count_letters(char text[])
 
     for (int character = 0; character < strlen(text); character++) 
     {
-        if (text[character] != ' ' && text[character] != '.' && text[character] != '!' && text[character] != '?' && text[character] != ',' && text[character] != ';' && text[character] != '\'' && text[character] != ':' && text[character] != '-' && text[character] != '"') 
+        if(isalpha(text[character]) != 0)
         {
             letters++;
         }
@@ -55,17 +57,12 @@ int count_words(char text[])
 
     for (int text_character = 0; text_character < strlen(text); text_character++) 
     {
-        if (text[text_character] == ' ' || text[text_character] == '.' || text[text_character] == '!' || text[text_character] == '?' || text[text_character] == ',' || text[text_character] == ';' || text[text_character] == ':') 
+        if (isalpha(text[text_character]) == 0) 
         {
             if (text[text_character] == ' ') 
             {
                 words++;
             } 
-            else 
-            {
-                text_character++;
-                words++;
-            }
         }
     }
 
