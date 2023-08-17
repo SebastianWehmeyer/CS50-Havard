@@ -85,6 +85,7 @@ int main(int argc, string argv[]) //Main was predetermined
     sort_pairs();
     lock_pairs();
     print_winner();
+
     return 0;
 }
 
@@ -181,7 +182,7 @@ void print_winner(void)
 
         for(int locked_winner = 0; locked_winner < candidate_count; locked_winner++)
         {
-            if(locked[locked_winner][candidate_number] == false)
+            if(!locked[locked_winner][candidate_number])
             {
                 count++;
 
@@ -194,10 +195,7 @@ void print_winner(void)
             }
         }
 
-        if (printed)
-        {
-            break;
-        }
+        if (printed) break;
     }
 
     return;
@@ -205,19 +203,13 @@ void print_winner(void)
 
 bool has_cycle(int cycle_end, int cycle_start)
 {
-    if (cycle_end == cycle_start)
-    {
-        return true;
-    }
+    if (cycle_end == cycle_start) return true;
 
     for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
     {
         if(locked[cycle_end][candidate_number])
         {
-            if(has_cycle(candidate_number, cycle_start))
-            {
-                return true;
-            }
+            if(has_cycle(candidate_number, cycle_start)) return true;
         }
     }
 

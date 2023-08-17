@@ -121,6 +121,7 @@ bool vote(int voter, int rank, string name)
         if (strcmp(candidates[candidate_number].name, name) == 0)
         {
             preferences[voter][rank] = candidate_number;
+
             return true;
         }
     }
@@ -156,6 +157,7 @@ bool print_winner(void)
         if (candidates[candidate_number].votes > (voter_count/2))
         {
             printf("%s \n", candidates[candidate_number].name);
+
             return true;
         }
     }

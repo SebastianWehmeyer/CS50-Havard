@@ -23,6 +23,7 @@ int main(int argc, string argv[])
     if (argc < 2)
     {
         printf("Usage: plurality [candidate ...]\n");
+
         return 1;
     }
 
@@ -31,6 +32,7 @@ int main(int argc, string argv[])
     if (candidate_count > MAX)
     {
         printf("Maximum number of candidates is %i\n", MAX);
+
         return 2;
     }
 
@@ -62,6 +64,7 @@ bool vote(string name)
         if (strcmp(candidates[candidate_number].name, name) == 0)
         {
             candidates[candidate_number].votes++;
+
             return true;
         }
     }
