@@ -8,27 +8,35 @@ def main():
         print("Usage: python3 dna.py database.csv sequences.txt")
         exit()
 
-    database = []
     database_filename = sys.argv[1]
     sequence_filename = sys.argv[2]
 
-    with open("databases/" + database_filename, "r") as file:
-        reader = csv.DictReader(file)
-
-        for name in reader:
-            database.append(name)
+    with open("databases/" + database_filename, "r") as csvfile:
+        reader = csv.reader(csvfile)
+        database = list(reader)
     
     with open("sequences/" + sequence_filename, "r") as file:
         sequence = file.read()
-    
-    
-    
-    # TODO: Find longest match of each STR in DNA sequence
 
-    # TODO: Check database for matching profiles
+    matches = []
+
+    for i in range(1, len(database[0])):
+        matches.append(longest_match(sequence, database[0][i]))
+    
+    printed = False
+    for i in range(1, len(database)):
+        count = 0
+        for j in range(1, len(database[0])):
+            if int(database[i][j]) == matches[j - 1]:
+                count += 1
+                if count == len(database[0]) - 1:
+                    print(database[i][0])
+                    printed = True
+                    break
+    if not printed:
+        print("No Match")
 
     return
-
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
