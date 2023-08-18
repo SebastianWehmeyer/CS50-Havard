@@ -3,7 +3,7 @@
 int main(void) 
 {
     int rows;
-    int a;
+    int height;
 
     do 
     {
@@ -11,30 +11,25 @@ int main(void)
         scanf("%d", &rows);
     } while (rows < 1 || rows > 8);
                                                     
-    a = rows;
+    height = rows;
 
-    for (int i = 1; i < (rows+1); i++) 
+    for (int row_count = 1; row_count < (rows+1); row_count++) 
     {
-        for (int j = 1; j < (rows+1); j++) 
+        for (int times_to_print_left = 1; times_to_print_left < (rows+1); times_to_print_left++) 
         {
-            if (j <= (rows - i)) 
-            {
-                printf(" ");
-            } 
-            else 
-            {
-                printf("#");
-            }
+            if (times_to_print_left <= (rows - row_count)) printf(" ");
+
+            else printf("#");
         }
 
         printf("  ");
 
-        for (int k = 1; k <= (rows - (a-1)); k++) 
+        for (int times_to_print_right = 1; times_to_print_right <= (rows - (height-1)); times_to_print_right++) 
         {
             printf("#");
         }
 
         printf("\n");
-        a -= 1;
+        height -= 1;
     }
 }

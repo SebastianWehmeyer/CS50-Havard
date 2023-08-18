@@ -13,15 +13,12 @@ int main(void)
         printf("Change owed: ");
         fgets(cents, 100, stdin);
         change = atoi(cents);
-        printf("%d", change);
     } while (change <= 0);
 
-    do 
+    while (change >= 0)
     {
-        if (change == 0)
-        {
-            change -= 1;
-        } 
+        if (change == 0) change -= 1;
+
         else if (change >= 25) 
         {
             count +=1;
@@ -43,7 +40,7 @@ int main(void)
             count += 1;
             change -= 1;
         }
-    } while (change >= 0);
+    } 
 
     printf("%d\n", count);
 }
