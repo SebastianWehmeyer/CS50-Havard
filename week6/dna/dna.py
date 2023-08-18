@@ -19,18 +19,17 @@ def main():
         sequence = file.read()
 
     matches = []
-
     for i in range(1, len(database[0])):
         matches.append(longest_match(sequence, database[0][i]))
     
     printed = False
-    for i in range(1, len(database)):
+    for row in range(1, len(database)):
         count = 0
-        for j in range(1, len(database[0])):
-            if int(database[i][j]) == matches[j - 1]:
+        for column in range(1, len(database[0])):
+            if int(database[row][column]) == matches[column - 1]:
                 count += 1
                 if count == len(database[0]) - 1:
-                    print(database[i][0])
+                    print(database[row][0])
                     printed = True
                     break
     if not printed:
