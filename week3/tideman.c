@@ -163,19 +163,16 @@ void lock_pairs(void)
 {
     for (int pair_number = 0; pair_number < pair_count; pair_number++)
     {
-        if(!has_cycle(pairs[pair_number].loser, pairs[pair_number].winner))
-        {
-            locked[pairs[pair_number].winner][pairs[pair_number].loser] = true;
-        }
+        bool cycle_exists = has_cycle(pairs[pair_number].loser, pairs[pair_number].winner);
+
+        if(!cycle_exists) locked[pairs[pair_number].winner][pairs[pair_number].loser] = true;
     }
 
     return;
 }
 
 void print_winner(void)
-{   
-    bool printed = false;
-
+{
     for(int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
     {
         int count = 0;
@@ -189,13 +186,10 @@ void print_winner(void)
                 if(count == candidate_count)
                 {
                     printf("%s \n",candidates[candidate_number]);
-                    printed = true;
-                    break;
+                    return;
                 }
             }
         }
-
-        if (printed) break;
     }
 
     return;
@@ -207,10 +201,8 @@ bool has_cycle(int cycle_end, int cycle_start)
 
     for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
     {
-        if(locked[cycle_end][candidate_number])
-        {
-            if(has_cycle(candidate_number, cycle_start)) return true;
-        }
+        bool locked_pair_exists = locked[cycle_end][candidate_number] && has_cycle(candidate_number, cycle_start);
+        if(locked_pair_exists) return true;
     }
 
     return false;

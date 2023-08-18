@@ -82,10 +82,8 @@ int main(int argc, string argv[])
         tabulate();
 
         bool won = print_winner();
-        if (won)
-        {
-            break;
-        }
+    
+        if (won) return 0;
 
         int min = find_min();
         bool tie = is_tie(min);
@@ -100,7 +98,7 @@ int main(int argc, string argv[])
                 }
             }
 
-            break;
+            return 0;
         }
 
         eliminate(min);
@@ -171,10 +169,7 @@ int find_min(void)
 
     for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
     {
-        if (candidates[candidate_number].votes < min_votes && !candidates[candidate_number].eliminated) 
-        {
-            min_votes = candidates[candidate_number].votes;
-        }
+        if (candidates[candidate_number].votes < min_votes && !candidates[candidate_number].eliminated) min_votes = candidates[candidate_number].votes;
     }
 
     return min_votes;
@@ -184,13 +179,7 @@ bool is_tie(int min)
 {
     for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
     {
-        if (!candidates[candidate_number].eliminated)
-        {
-            if (candidates[candidate_number].votes != min)
-            {
-                return false;
-            }
-        }
+        if (!candidates[candidate_number].eliminated && candidates[candidate_number].votes != min) return false;
     }
 
     return true;
@@ -200,10 +189,7 @@ void eliminate(int min)
 {
     for (int candidate_number = 0; candidate_number < candidate_count; candidate_number++)
     {
-        if (candidates[candidate_number].votes == min)
-        {
-            candidates[candidate_number].eliminated = true;
-        }
+        if (candidates[candidate_number].votes == min) candidates[candidate_number].eliminated = true;
     }
 
     return;
