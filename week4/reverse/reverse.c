@@ -26,15 +26,9 @@ int main(int argc, char *argv[])
     bool input_is_wav = false;
     bool output_is_wav = false;
 
-    if (input_name[input_length-3] == '.' && input_name[input_length-2] == 'w' && input_name[input_length-1] == 'a' && input_name[input_length] == 'v')
-    {
-        input_is_wav = true;
-    }
+    if (input_name[input_length-3] == '.' && input_name[input_length-2] == 'w' && input_name[input_length-1] == 'a' && input_name[input_length] == 'v') input_is_wav = true;
 
-    if (output_name[output_length-3] == '.' && output_name[output_length-2] == 'w' && output_name[output_length-1] == 'a' && output_name[output_length] == 'v')
-    {
-        output_is_wav = true;
-    }
+    if (output_name[output_length-3] == '.' && output_name[output_length-2] == 'w' && output_name[output_length-1] == 'a' && output_name[output_length] == 'v') output_is_wav = true;
 
     if (!input_is_wav)
     {
@@ -92,10 +86,7 @@ int check_format(WAVHEADER header)
 
     for (int check_character = 0; check_character < 4; check_character++)
     {
-        if (header.format[check_character] != check[check_character])
-        {
-            return 0;
-        }
+        if (header.format[check_character] != check[check_character]) return 0;
     }
 
     return 1;

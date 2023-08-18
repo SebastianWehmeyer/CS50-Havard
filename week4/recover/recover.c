@@ -31,27 +31,18 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            if (count != 0)
-            {
-                fclose (output_file);
-            }
+            if (count != 0) fclose (output_file);
 
             sprintf(filename, "%03i.jpg", count);
             output_file = fopen(filename, "w");
             count++;
         }
 
-        if (count != 0)
-        {
-            fwrite(&buffer, 512, 1, output_file);
-        }
+        if (count != 0) fwrite(&buffer, 512, 1, output_file);
 
     }
 
-    if (output_file != NULL)
-    {
-        fclose(output_file);
-    }
+    if (output_file != NULL) fclose(output_file);
 
     fclose(raw_file);
 
