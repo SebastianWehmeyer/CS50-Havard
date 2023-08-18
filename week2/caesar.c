@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 // cc caesar.c -o caesar cs50.c
 char caesar(char, int);
@@ -52,18 +53,13 @@ char caesar (char normal_character, int times_to_rotate)
     char chiffre_character;
     int character_as_ascii = normal_character;
 
-    if (character_as_ascii <= 64 || character_as_ascii >= 91 && character_as_ascii <= 96 || character_as_ascii >= 123)  //If not a letter
-    {
-        chiffre_character = normal_character;
-    } 
+    if (!isalpha(normal_character)) chiffre_character = normal_character;
+
     else
     {
         for (int number_of_rotations = 0; number_of_rotations < times_to_rotate; number_of_rotations++)
         {
-            if (character_as_ascii == 90 || character_as_ascii == 122)
-            {
-                character_as_ascii -= 26;  
-            }
+            if (character_as_ascii == 90 || character_as_ascii == 122) character_as_ascii -= 26;  
 
             character_as_ascii++;
         }

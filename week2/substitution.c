@@ -17,11 +17,7 @@ int main(int argc, string argv[])
 
         for (int key_element = 0; key_element < key_length; key_element++)
         {
-            if (isalpha(key[key_element]) == 1)
-            {
-                number_of_letters++;
-            }
-
+            if (isalpha(key[key_element]) == 1) number_of_letters++;
         } 
 
         if (argc == 2 && key_length == 26 && number_of_letters == 26 && compare_text(key))
@@ -62,7 +58,7 @@ int main(int argc, string argv[])
 
 bool compare_text(char key[])
 {
-    bool each_letter_once;
+    bool each_letter_once = true;
 
     for (int key_element = 0; key_element <= 26; key_element++)
     {
@@ -71,17 +67,8 @@ bool compare_text(char key[])
             if (key[key_element] == key[next_key_element])
             {
                 each_letter_once = false;
-                break;
+                return each_letter_once;
             } 
-            else
-            {
-                each_letter_once = true;
-            }
-        }
-
-        if (each_letter_once)
-        {
-            break;
         }
     }
 
@@ -93,23 +80,17 @@ char rotate(char normal_character, char key[])
     char upper_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char lower_alphabet[] = "abcdefghijklmnopqrstuvwxyz";
     char coded_character;
-    int character_as_ascii = normal_character;
     int key_element = 0;
 
-    if (character_as_ascii <= 64 || character_as_ascii >= 91 && character_as_ascii <= 96 || character_as_ascii >= 123) //If not a letter
-    {
-        coded_character = normal_character;
-    } 
+    if (isalpha(normal_character)) coded_character = normal_character;
+
     else
     {
         if (islower(normal_character) == 1)
         {
             for (int alphabet_element = 0; alphabet_element <= 26; alphabet_element++)
             {
-                if (normal_character == lower_alphabet[alphabet_element])
-                {
-                    break;
-                }
+                if (normal_character == lower_alphabet[alphabet_element]) break;
 
                 key_element++;
             }
@@ -120,10 +101,7 @@ char rotate(char normal_character, char key[])
         {
             for (int alphabet_element = 0; alphabet_element <= 26; alphabet_element++)
             {
-                if (normal_character == upper_alphabet[alphabet_element])
-                {
-                    break;
-                }
+                if (normal_character == upper_alphabet[alphabet_element]) break;
 
                 key_element++;
             }

@@ -30,7 +30,7 @@ int main(int argc, string argv[])
 
         int size;
         int wordsize = atoi(argv[1]);  
-        
+
         if (wordsize >= 5 && wordsize <= 8)                             
         {
             char wl_filename[6];
@@ -112,20 +112,15 @@ string get_guess(int wordsize)
 {
     string guess = get_string ("Input a %i-letter word: ", wordsize);
 
-    if (strlen(guess) == wordsize)
-    {
-        return guess;
-    } 
+    if (strlen(guess) == wordsize) return guess;
+
     else
     {
         while (strlen(guess) != wordsize)
         {
             string guess = get_string ("Input a %i-letter word: ", wordsize);
 
-            if (strlen(guess) == wordsize)
-            {
-                return guess;
-            }
+            if (strlen(guess) == wordsize) return guess;
         }
     }
 
@@ -145,7 +140,8 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 status[element] = 2;
                 score += 2;
                 break;
-            } else 
+            } 
+            else 
             {
                 if (guess[element] == choice[other_element])
                 {
@@ -163,18 +159,11 @@ void print_word(string guess, int wordsize, int status[])
 {
     for (int element = 0; element <= wordsize; element++)
     {
-        if (status[element] == 0)
-        {
-            printf(RED"%c"RESET, guess[element]);
-        } 
-        else if (status[element] == 1)
-        {
-            printf(YELLOW"%c"RESET, guess[element]);
-        } 
-        else 
-        {
-            printf(GREEN"%c"RESET, guess[element]);
-        }
+        if (status[element] == 0) printf(RED"%c"RESET, guess[element]);
+
+        else if (status[element] == 1) printf(YELLOW"%c"RESET, guess[element]);
+
+        else printf(GREEN"%c"RESET, guess[element]);
     }
 
     printf("\n");
