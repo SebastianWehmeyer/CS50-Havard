@@ -8,10 +8,7 @@ while True:
         print("Invalid")
 
 length = len(card_number)
-digit_position = 0
-sum_first_digits = 0
-sum_second_digits = 0
-multiplied_second_digits = 0
+digit_position, sum_first_digits, sum_second_digits, multiplied_second_digits = 0
 
 while True:
     while digit_position < length:

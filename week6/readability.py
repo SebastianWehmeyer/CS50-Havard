@@ -1,8 +1,6 @@
 
 input_text = str(input("Text: ") + " ") 
-sentences_count = 0
-words_count = 0
-letters_count = 0
+sentences_count, words_count,letters_count = 0
 
 for text_character in input_text:
     if text_character in [".", "!", "?"]:
