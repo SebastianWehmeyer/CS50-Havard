@@ -1,0 +1,324 @@
+
+body, html {
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+
+body:not(.dark-mode) {
+    --background-color: #f1f2f6;
+    --color: #1e272e;
+}
+
+.dark-mode {
+    --background-color: #1e272e;
+    --color: rgb(241, 242, 246);
+}
+
+main {
+    margin-bottom: 100px;
+    max-width: 100%;
+}
+
+header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: orange;
+}
+
+p {
+    color: var(--color);
+    text-align: center;
+    font-size: 20px;
+}
+
+hr {
+    padding: 0px;
+    margin: auto;
+    height: 2px;
+    background-color: var(--color);
+    border: none;
+}
+
+h3 {
+    color: var(--color);
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+img {
+    height: 400px;
+    width: 400px;
+}
+
+#footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: orange;
+}
+
+.img-icons {
+    height: 100%;
+    width: 100%;
+}
+
+.pp-text {
+    margin-left: 40px;
+    margin-top: 0px;
+    margin-right: 40px;
+}
+
+.welcome {
+    margin-top: 50px;
+    margin-left: 50px;
+    display: flex;
+}
+
+.text-link {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    color: orange;
+}
+
+.text-link-bottom {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    color: #f1f2f6;
+}
+
+.text-link-bottom:hover{
+    padding: 2px;
+    color: gray;
+}
+
+.text-link-settings {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 2px;
+    color: orange;
+}
+
+.home {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: var(--color);
+    font-size: 20px;
+    border-radius: 0,25em;
+    cursor: pointer;
+    padding: 8px;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.header-link {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: var(--color);
+    font-size: 20px;
+    border-radius: 0.25em;
+    cursor: pointer;
+    padding: 8px;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.header-link:hover, .full-name-text:hover {
+    color: gray;
+}
+
+.socials-header {
+    text-align: center;
+    margin: 0;
+    padding: 25px;
+    font-size: 30px;
+    color: var(--color);
+    background-color: var(--background-color);
+}
+
+.parent {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+fieldset {
+    border: 2px solid var(--color);
+    height: 300px;
+    width: 300px;
+    --background-color: var(--background-color);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 15px 15px;
+}
+
+legend {
+    margin-inline: auto;
+    font-size: 20px;
+    color: var(--color);
+}
+
+.container__btn {
+    height: 50px;
+    width: 200px;
+    padding: 10px;
+    font-size: 20px;
+    color: var(--color);
+    background-color: var(--background-color);
+    border: 2px solid var(--color);
+    cursor: pointer;
+}
+
+.container__btn:hover {
+    color: orange;
+    border: 1px solid orange;
+}
+
+.container {
+    margin-top: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__link:hover {
+    color: rgb(204, 174, 98);
+}
+
+.hello-image-container {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.hello-image {
+    height: 122px;
+    width: 122px;
+    background-color: white;
+    display: inline;
+    justify-content: center;
+    text-align: center;
+}
+
+@media (max-width: 1100px) {
+
+    .welcome {
+        display: inline-block;
+        text-align: center;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .pp-text {
+        margin-top: 20px;
+        display: flex;
+    }
+
+    @media (max-width: 700px){
+
+        .header-link2 {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            color: var(--color);
+            font-size: 20px;
+            border-radius: 0.25em;
+            cursor: pointer;
+            padding: 8px;
+            transition: all 0.50s ease;
+            text-decoration: none
+        }
+
+        .header-link {
+            margin-top: 0px;
+            display: flex;
+            justify-content: center;
+            color: var(--color);
+            font-size: 20px;
+            border-radius: 0.25em;
+            cursor: pointer;
+            padding: 8px;
+            transition: all 0.50s ease;
+            text-decoration: none
+        }
+
+        header {
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .welcome {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .text-link-settings {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 2px;
+            color: orange;
+        }
+
+        .text-link {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 2px;
+            text-align: center;
+            color: orange;
+        }
+
+        .pp-text {
+            margin-top: 15px;
+            margin-left: 5px;
+            margin-right: 5px;
+            display: inline-block;
+        }
+
+        .main-image-sebastian {
+            margin: 0px auto;
+        }
+
+        .hello-image-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+
+        @media (max-width: 450px){
+
+            img {
+                height: 200px;
+                width: 200px;
+            }
+
+            fieldset {
+                border: 2px solid var(--color);
+                height: 200px;
+                width: 200px;
+                --background-color: var(--background-color);
+                margin-top: 50px;
+                margin-bottom: 50px;
+                padding: 15px 15px;
+            } 
+        }
+    }
+}
+

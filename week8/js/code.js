@@ -5,6 +5,6 @@ function darkmode() {
     element.classList.toggle('dark-mode', !wasDarkmode);
 }
 
-function onload() {
+function onloadDark() {
     document.body.classList.toggle('dark-mode', localStorage.getItem('darkmode') === 'true');
 }
