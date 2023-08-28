@@ -1,4 +1,7 @@
 
+:root {
+    --navbar-height: 50px;
+}
 body, html {
     box-sizing: border-box;
     background-color: var(--background-color);
@@ -18,21 +21,14 @@ body:not(.dark-mode) {
 }
 
 main {
-    margin-bottom: 100px;
     max-width: 100%;
+    text-align: center;
 }
 
-header {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    background-color: orange;
-}
 
 p {
     color: var(--color);
+    align-items: center;
     text-align: center;
     font-size: 20px;
 }
@@ -54,12 +50,13 @@ h3 {
 }
 
 img {
-    height: 400px;
-    width: 400px;
+    height: 100%;
+    width: 100%;
 }
 
 #footer {
     position: fixed;
+    text-align: center;
     width: 100%;
     bottom: 0;
     background-color: orange;
@@ -70,16 +67,23 @@ img {
     width: 100%;
 }
 
-.pp-text {
-    margin-left: 40px;
+.text {
+    margin-left: 50px;
     margin-top: 0px;
-    margin-right: 40px;
+    line-height: 1.5;
 }
 
-.welcome {
-    margin-top: 50px;
-    margin-left: 50px;
+.body-text-image {
+    margin: 50px;
     display: flex;
+}
+
+.text-end {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
 }
 
 .text-link {
@@ -95,7 +99,8 @@ img {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 2px;
-    display: flex;
+    display: inline-block;
+    text-align: center;
     justify-content: center;
     color: #f1f2f6;
 }
@@ -105,39 +110,125 @@ img {
     color: gray;
 }
 
-.text-link-settings {
+.text-link-normal {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 2px;
     color: orange;
 }
 
-.home {
-    margin-left: 10px;
-    margin-right: 10px;
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
     color: var(--color);
-    font-size: 20px;
-    border-radius: 0,25em;
-    cursor: pointer;
-    padding: 8px;
-    transition: all 0.25s ease;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+}
+
+nav{
+    height: var(--navbar-height);
+    background-color: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo{
+    margin-left: 25px;
+    font-size: 22px;
+    font-variant: small-caps;
     text-decoration: none;
 }
 
-.header-link {
-    margin-left: 10px;
-    margin-right: 10px;
-    color: var(--color);
-    font-size: 20px;
-    border-radius: 0.25em;
-    cursor: pointer;
-    padding: 8px;
-    transition: all 0.25s ease;
+nav ul{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+}
+
+nav li{
+    height: 100%;
+    width: 120px;
+    text-align: center;
+    position: relative;
+    transition: 0.25s ease;
+}
+
+nav li:hover{
+    background-color: gray;
+}
+
+nav ul a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
 }
 
-.header-link:hover, .full-name-text:hover {
-    color: gray;
+.dropdown{
+    height: min-content;
+    width: 120px;
+    background: rgb(230, 155, 15);
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: var(--navbar-height);   
+}
+
+.dropdown li{
+    height: 70px;
+    width: 100%;
+}
+
+.dropdown li a{
+    justify-content: flex-start;
+    padding-left: 30px;
+    width: calc(100% - 30px);
+}
+
+nav li:hover .dropdown{
+    display: flex;
+}
+
+nav input[type="checkbox"]{
+    display: none;
+}
+
+.expandable_li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle_button{
+    width: 30px;
+    height: 23px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bar{
+    height: 3px;
+    width: 100%;
+    background: var(--color);
+    border-radius: 100px;
 }
 
 .socials-header {
@@ -172,6 +263,7 @@ legend {
 }
 
 .container__btn {
+    margin-top: 15px;
     height: 50px;
     width: 200px;
     padding: 10px;
@@ -183,7 +275,7 @@ legend {
 }
 
 .container__btn:hover {
-    color: orange;
+    color: rgb(255, 166, 0);
     border: 1px solid orange;
 }
 
@@ -200,109 +292,286 @@ legend {
 
 .hello-image-container {
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .hello-image {
-    height: 122px;
-    width: 122px;
-    background-color: white;
-    display: inline;
-    justify-content: center;
+    height: 150px;
+    width: 150px;
+}
+
+.rickroll {
+    margin-top: 100px;
+    height: 720px;
+    width: 1280px;
     text-align: center;
+}
+
+.main-image-sebastian {
+    height: 400px;
+    width: 400px;
+}
+
+.about-img {
+    height: 300px;
+    width: 300px;
+}
+
+.ea-img {
+    height: 211px;
+    width: 428px;
+}
+
+.fifa-img {
+    height: 230px;
+    width: 410px;
+}
+
+.eafc-img {
+    height: 230px;
+    width: 410px;
+    margin-bottom: 50px;
+}
+
+.tweet-bochum-container {
+    margin-bottom: 100px;
+}
+
+@media (max-width: 1660px)
+{
+    .hello-image {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media (max-width: 1300px)
+{
+    .rickroll {
+        margin-top: 50px;
+        height: 480px;
+        width: 854px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px)
+{
+    .rickroll {
+        margin-top: 50px;
+        height: 360px;
+        width: 640px;
+        text-align: center;
+    }
 }
 
 @media (max-width: 1100px) {
 
-    .welcome {
-        display: inline-block;
-        text-align: center;
-        margin: auto;
-        margin-top: 20px;
+    body {
+        margin: 0px;
+        margin-bottom: 50px;
     }
 
-    .pp-text {
-        margin-top: 20px;
+    .about-img {
+        height: 200px;
+        width: 200px;
         display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    @media (max-width: 700px){
+    .ea-img {
+        height: 160px;
+        width: 324px;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        .header-link2 {
-            margin-top: 5px;
-            display: flex;
-            justify-content: center;
-            color: var(--color);
-            font-size: 20px;
-            border-radius: 0.25em;
-            cursor: pointer;
-            padding: 8px;
-            transition: all 0.50s ease;
-            text-decoration: none
-        }
+    .fifa-img {
+        height: 172px;
+        width: 308px;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        .header-link {
-            margin-top: 0px;
-            display: flex;
-            justify-content: center;
-            color: var(--color);
-            font-size: 20px;
-            border-radius: 0.25em;
-            cursor: pointer;
-            padding: 8px;
-            transition: all 0.50s ease;
-            text-decoration: none
-        }
+    .body-text-image {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-        header {
-            padding: 5px;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
+    .text-link-settings {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 2px;
+        color: orange;
+    }
 
-        .welcome {
-            margin-top: 15px;
-            margin-bottom: 15px;
-            display: flex;
-            flex-wrap: wrap;
-        }
+    .text-link {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 2px;
+        text-align: center;
+        color: orange;
+    }
 
-        .text-link-settings {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            padding: 2px;
-            color: orange;
-        }
+    .text {
+        margin-top: 15px;
+        margin-left: 5px;
+        margin-right: 5px;
+        display: inline-block;
+    }
 
-        .text-link {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            padding: 2px;
-            text-align: center;
-            color: orange;
-        }
+    .main-image-sebastian {
+        margin: 0px auto;
+    }
 
-        .pp-text {
-            margin-top: 15px;
-            margin-left: 5px;
-            margin-right: 5px;
-            display: inline-block;
-        }
+    .hello-image-container {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+    }
 
-        .main-image-sebastian {
-            margin: 0px auto;
-        }
-
-        .hello-image-container {
-            display: flex;
-            justify-content: center;
-        }
+    @media (max-width: 850px){
         
+        .toggle_button{
+            display: flex;
+        }
+
+        nav ul {
+            height: min-content;
+            width: 100%;
+            background-color: rgb(230, 155, 15);
+            display: none;
+            position: absolute;
+            top: var(--navbar-height);
+        }
+
+        nav li{
+            height: min-content;
+            width: 100%;
+        }
+
+        nav ul a{
+            padding: 30px 0;
+        }
+
+        .expandable_li{
+            display: block;
+        }
+
+        .expandable_li label{
+            padding: 30px 0;
+            cursor: pointer;
+            display: block;
+        }
+
+        .expandable_li:hover .dropdown{
+            display: none;
+        }
+
+        .expandable_li input[type="checkbox"]:checked ~ .dropdown{
+            display: block;
+        }
+
+        .dropdown{
+            position: static;
+            width: 100%;
+        }
+
+        .dropdown li{
+            padding: 0;
+            display: block;
+            position: static;
+            background: rgb(210, 135, 25);
+    
+        }
+
+        .dropdown li a{
+            width: 100%;
+            padding: 0;
+            justify-content: center;
+        }
+
+        #toggle_button:checked ~ ul{
+            display: block;
+        }
+
+        .tweet-container {
+            margin: auto;
+        }
+
+        .tweet-bochum-container {
+            margin: auto;
+        }
+
+        .rickroll {
+            margin-top: 50px;
+            height: 240px;
+            width: 426px;
+            text-align: center;
+        }
 
         @media (max-width: 450px){
+
+            .about-img {
+                height: 150px;
+                width: 150px;
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .ea-img {
+                height: 80px;
+                width: 162px;
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .fifa-img {
+                height: 86px;
+                width: 154px;
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .text {
+                font-size: 18px;
+            }
+
+            .main-image-sebastian {
+                height: 200px;
+                width: 200px;
+            }
+
+            .rickroll {
+                margin-top: 20px;
+                height: 120px;
+                width: 212px;
+                text-align: center;
+            }
 
             img {
                 height: 200px;
@@ -321,4 +590,3 @@ legend {
         }
     }
 }
-

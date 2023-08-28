@@ -5,44 +5,58 @@
         <link rel="stylesheet" href="../css/style.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title>Home | Sebastian Wehmeyer</title>
     </head>
     <body onload="onloadDark()">
-        <header>
-            <div class="home-container">
-                <a class="header-link" href="index.html">Home</a> 
-            </div>
-            <div class="header-links"> 
-                <a class="header-link" href="about.html">About</a>
-                <a class="header-link" href="esports.html">eSports</a>
-                <a class="header-link" href="socials.html">Socials</a>
-                <a class="header-link" href="settings.html">Settings</a>
-            </div>
-        </header>
+        <nav>
+            <a class="logo" href="index.html">Sebastian Wehmeyer</a>
+            <input type="checkbox" id="toggle_button">
+            <label for="toggle_button" class="toggle_button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="expandable_li">
+                    <input type="checkbox" id="products_checkbox">
+                    <label for="products_checkbox">eSports</label>
+                    <ul class="dropdown">
+                        <li><a href="esports/general.html">General</a></li>
+                        <li><a href="esports/fifa22.html">Fifa 22</a></li>
+                        <li><a href="esports/fifa23.html">Fifa 23</a></li>
+                    </ul>
+                </li>
+                <li><a href="socials.html">Socials</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
         <hr>
         <main>
-            <div class="welcome">
-                    <img src="../images/Sebastian_Wehmeyer_PP.jpg" class="main-image-sebastian" alt="Sebastian Wehmeyer">
+            <div class="body-text-image">
+                    <img src="../images/about-index/Sebastian_Wehmeyer_PP.jpg" class="main-image-sebastian" alt="Sebastian Wehmeyer">
                     <div>
-                        <p class="pp-text">
-                            Hello and welcome to my page! My name is Sebastian Wehmeyer and I'm the guy on the left. If you are new to my page and want to know more about me, 
-                            click on the following links 
+                        <p class="text">
+                            Hello and welcome to my page! My name is Sebastian Wehmeyer and I'm the guy on the left. 
+                            If you are new to my page and want to know more about me, click on the following links 
                             or on the words at the top of this page! Feel free to look around everywhere on my page!
                             <a class="text-link" href="about.html">About</a>
                             <a class="text-link" href="esports.html">eSports</a>
                             <a class="text-link" href="socials.html">Socials</a>
-                            Did you know that you can switch between Light and Dark-Mode in <a class="text-link-settings" href="settings.html">Settings</a> ?
+                            Did you know that you can switch between Light and Dark-Mode in 
+                            <a class="text-link-normal" href="settings.html">Settings</a> ?
                         </p> 
                         <div class="hello-image-container">
-                            <img src="../images/welle.gif" class="hello-image" alt="hello">
+                            <img src="../images/about-index/welle.gif" class="hello-image" alt="hello">
                         </div> 
                     </div>
             </div>
         </main>
-        <script src="../js/code.js"></script>
         <div id="footer">
             <hr>
-            <a style="font-size: 15px" class="text-link-bottom" href="https://www.flaticon.com/de/kostenlose-animierte-icons/hallo" title="Icons">Icons erstellt von Freepik - Flaticon</a>
-        </div>    
+            <a style="font-size: 15px" class="text-link-bottom" href="https://www.flaticon.com/de/kostenlose-animierte-icons/hallo" target="_blank" title="Icons">Icons created by Freepik - Flaticon</a>
+        </div>
     </body>
+    <script src="../js/code.js"></script>
 </html>
