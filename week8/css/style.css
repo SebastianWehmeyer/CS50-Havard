@@ -404,6 +404,14 @@ legend {
         margin-right: auto;
     }
 
+    .tweet-container {
+        margin: auto;
+    }
+
+    .tweet-bochum-container {
+        margin: auto;
+    }
+
     .body-text-image {
         margin-top: 15px;
         margin-bottom: 15px;
@@ -510,14 +518,6 @@ legend {
             display: block;
         }
 
-        .tweet-container {
-            margin: auto;
-        }
-
-        .tweet-bochum-container {
-            margin: auto;
-        }
-
         .rickroll {
             margin-top: 50px;
             height: 240px;
@@ -558,6 +558,10 @@ legend {
             }
 
             .text {
+                font-size: 18px;
+            }
+
+            .text-link-normal {
                 font-size: 18px;
             }
 
