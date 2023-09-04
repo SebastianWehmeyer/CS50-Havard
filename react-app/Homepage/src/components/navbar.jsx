@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "../css/style.css";
 import DarkMode from "./darkmode";
 
-function App() {
+function Navbar() {
 
   const [open, setOpen] = useState(false);
   let menuRef = useRef();
@@ -32,11 +32,11 @@ function App() {
         <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
           <h3>Sebastian Wehmeyer</h3>
           <ul>
-            <a href="/index.html"><DropdownItem text={"Home"} /></a>
-            <a href="./about.tsx"><DropdownItem text={"About"} /></a>
-            <a href="./esports.tsx"><DropdownItem text={"eSports"} /></a>
+            <a href="/"><DropdownItem text={"Home"} /></a>
+            <a href="/about.html"><DropdownItem text={"About"} /></a>
+            <a href="/esports.html"><DropdownItem text={"eSports"} /></a>
             <a href="/socials.html"><DropdownItem text={"Socials"} /></a>
-            <a href="/pages/quotes.html"><DropdownItem text={"Quotes"} /></a>
+            <a href="/quotes.html"><DropdownItem text={"Quotes"} /></a>
             <DropdownDarkMode />
           </ul>
         </div>
@@ -60,4 +60,5 @@ function DropdownDarkMode() {
     </li>
   );
 }
-export default App;
+
+export default Navbar;

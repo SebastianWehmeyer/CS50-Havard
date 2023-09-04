@@ -120,7 +120,7 @@ h3{
 }
 
 .border {
-    margin-top: 150px;
+    margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
     border: 2px solid var(--primary-text-color)
@@ -163,7 +163,38 @@ p {
     margin: auto;
 }
 
-@media (max-width: 850px) {
+.quote-container {
+    margin-top: 120px;
+}
+
+.main-footer {
+    color: var();
+    background-color: orange;
+    position: absolute;
+    height: 40px;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-text {
+    margin: 10px auto;
+    text-align: center;
+    color: var(--primary-text-color);
+    font-size: 15px;
+}
+
+.footer-link {
+    text-decoration: underline;
+}
+
+.footer-link:hover {
+    color: rgb(212, 33, 9);
+    transition: 0.3s;
+}
+
+
+
+@media (max-width: 450px) {
 
     .menu-trigger img {
         height: 40px;
@@ -186,10 +217,6 @@ p {
 
     .dropdownItem {
         margin: 8px auto;
-    }
-
-    .border {
-        margin-top: 80px;
     }
 
     h2 {

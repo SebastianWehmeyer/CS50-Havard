@@ -28,14 +28,13 @@ export default function Quote() {
 
     return (
         <>
-        <div className="quote-container">
-            <div className="border">
-                <h2 className="quote">{quote}</h2>
-                <p className="author">-{author}-</p>
-            </div><br/>
-            <button className="btn" onClick={fetchNewQuote}><p className="button-text">New Quote</p></button>
-        </div>
-            
+            <div className="quote-container">
+                <button className="btn" onClick={fetchNewQuote}><p className="button-text">New Quote</p></button>
+                <div className="border">
+                    <h2 className="quote">{quote}</h2>
+                    <p className="author">-{author}-</p>
+                </div><br/>
+            </div> 
         </>
     )
 }
