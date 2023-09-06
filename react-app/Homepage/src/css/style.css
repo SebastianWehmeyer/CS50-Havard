@@ -2,6 +2,7 @@
     --primary-bg: white;
     --secondary-bg: #e1e1e1;
     --primary-text-color: #1e272e;
+    --hover-color: red;
     --border-radius: 8px;
     --speed: 500ms;
 }
@@ -10,6 +11,7 @@
     --primary-bg: #1e272e;
     --secondary-bg: #353535;
     --primary-text-color: rgb(241, 242, 246);
+    --hover-color: red;
     --border-radius: 8px;
     --speed: 500ms;
 }
@@ -103,7 +105,7 @@ h3{
 }
   
 .dropdown-menu ul li:hover div {
-    color: rgb(212, 33, 9);
+    color: var(--hover-color);
     cursor: pointer;
     transition: 0.3s ease;
 }
@@ -174,6 +176,7 @@ p {
     height: 40px;
     bottom: 0;
     width: 100%;
+    border-top: 1px solid var(--primary-text-color);
 }
 
 .footer-text {
@@ -188,11 +191,9 @@ p {
 }
 
 .footer-link:hover {
-    color: rgb(212, 33, 9);
+    color: var(--hover-color);
     transition: 0.3s;
 }
-
-
 
 @media (max-width: 450px) {
 

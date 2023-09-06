@@ -1,6 +1,4 @@
 import React from "react";
-import Sun from "../../assets/Sun.svg";
-import Moon from "../../assets/Moon.svg";
 import '../css/darkmode.css'
 
 const DarkMode = () => {
@@ -35,8 +33,7 @@ const DarkMode = () => {
                 onChange={toggleTheme}
                 defaultChecked={selectedTheme === "dark"}
             />
-            <label className='dark_mode_label' htmlFor='darkmode-toggle'>
-            </label>
+            <label className='dark_mode_label' htmlFor='darkmode-toggle'></label>
         </div>
     );
 };

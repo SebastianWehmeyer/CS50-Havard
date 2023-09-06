@@ -37,13 +37,13 @@
 }
 
 .dark_mode_input:checked + .dark_mode_label {
-    background: #353535;
+    background: #757575;
 }
 
 .dark_mode_input:checked + .dark_mode_label:after {
     left: 62px;
     transform: translateX(-100%);
-    background: linear-gradient(180deg, #999, #3a3a3a);
+    background: linear-gradient(180deg, #999, #1a1a1a);
 }
 
 .dark_mode_label:active:after {

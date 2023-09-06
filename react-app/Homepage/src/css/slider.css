@@ -1,0 +1,126 @@
+:root {
+    --primary-bg: white;
+    --secondary-bg: #e1e1e1;
+    --primary-text-color: #1e272e;
+    --border-radius: 8px;
+    --hover-color: red;
+    --speed: 500ms;
+}
+
+[data-theme="dark"] {
+    --primary-bg: #1e272e;
+    --secondary-bg: #353535;
+    --primary-text-color: rgb(241, 242, 246);
+    --hover-color: red;
+    --border-radius: 8px;
+    --speed: 500ms;
+}
+  
+.arrowContainer {
+    display: flex;
+    transition: 0.3s;
+}
+
+.rightArrowStyles {
+    position: absolute;
+    top: 375px;
+    transform: translate(0, -50%);
+    right: 0px;
+    font-size: 55px;
+    color: var(--primary-text-color);
+    z-index: 1;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: var(--primary-bg);
+    border: none
+}
+
+.rightArrowStyles:hover {
+    font-size: 65px;
+    transition: 0.3s;
+    color: var(--hover-color);
+}
+  
+.leftArrowStyles {
+    position: absolute;
+    top: 375px;
+    transform: translate(0, -50%);
+    font-size: 55px;
+    color: var(--primary-text-color);
+    z-index: 1;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: var(--primary-bg);
+    border: none
+}
+
+.leftArrowStyles:hover {
+    font-size: 65px;
+    transition: 0.3s;
+    color: var(--hover-color);
+}
+
+.sliderStyles {
+    position: relative;
+    height: 100%;
+}
+
+.slideStyles {
+    height: 300px;
+    width: 300px;
+    justify-content: center;
+    margin-top: -15px;
+}
+
+.dotsContainerStyles{
+    display: flex;
+    justify-content: center;
+}
+  
+.dotStyle {
+    margin: 0 3px;
+    cursor: pointer;
+    font-size: 35px;
+    color: var(--primary-text-color);
+    transition: 0.3s;
+    background-color: var(--primary-bg);
+    border: none;
+    margin-top: -5px;
+    margin-right: -2px;
+}
+
+.dotStyle:hover {
+    color: var(--hover-color);
+    transition: 0.3s;
+}
+
+fieldset {
+    border: 2px solid var(--primary-text-color);
+    height: 300px;
+    width: 300px;
+    background-color: var(--primary-bg);
+    margin-top: 200px;
+    margin-bottom: 10px;
+    padding: 15px 15px;
+    transition: 0.3s;
+    --fieldset-hover-color: var(--primary-text-color);
+}
+
+fieldset:hover {
+    border: 2px solid var(--hover-color);
+    transition: 0.3s;
+    --fieldset-hover-color: var(--hover-color);
+}
+
+legend {
+    margin-inline: auto;
+    font-size: 20px;
+    color: var(--fieldset-hover-color);
+    transition: 0.3s;
+}
+
+.parent {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
